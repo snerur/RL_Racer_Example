@@ -92,7 +92,7 @@ export function SimulationCanvas({ processedTrack, coreRef, showDebug }: Simulat
         width={CANVAS_W}
         height={CANVAS_H}
         className="sim-canvas"
-        aria-label="Deep Racer simulation canvas"
+        aria-label="RL Racer simulation canvas"
       />
     </div>
   );

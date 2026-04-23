@@ -41,7 +41,7 @@ export default function App() {
         <div className="header-left">
           <span className="header-logo">🏎</span>
           <div>
-            <h1 className="header-title">Deep Racer RL</h1>
+            <h1 className="header-title">RL Racer</h1>
             <p className="header-subtitle">Q-Learning Reinforcement Learning Simulation</p>
           </div>
         </div>

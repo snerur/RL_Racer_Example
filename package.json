@@ -1,7 +1,7 @@
 {
-  "name": "deep-racer-rl",
+  "name": "rl-racer",
   "version": "1.0.0",
-  "description": "Interactive Deep Racer RL Simulation - teaches Q-learning through a miniature car racing game",
+  "description": "RL Racer - an interactive Q-learning simulation that teaches Reinforcement Learning through a miniature racing car game",
   "private": true,
   "type": "module",
   "scripts": {

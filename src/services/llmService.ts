@@ -9,7 +9,7 @@ export function buildSystemPrompt(
   weights: RewardWeights
 ): string {
   const t = track?.definition;
-  return `You are an expert AI tutor for a Deep Racer reinforcement learning simulation.
+  return `You are an expert AI tutor for RL Racer, a reinforcement learning simulation.
 The simulation uses Q-learning to teach a miniature car to complete a race track.
 
 CURRENT SIMULATION STATE

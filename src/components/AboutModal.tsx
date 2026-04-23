@@ -9,7 +9,7 @@ export function AboutModal({ onClose }: Props) {
         <div className="modal-header">
           <div className="modal-title-row">
             <span className="modal-logo">🏎</span>
-            <h2 className="modal-title">About Deep Racer RL</h2>
+            <h2 className="modal-title">About RL Racer</h2>
           </div>
           <button className="modal-close" onClick={onClose} aria-label="Close">✕</button>
         </div>
@@ -20,7 +20,7 @@ export function AboutModal({ onClose }: Props) {
           <section className="about-section">
             <h3>What Is This?</h3>
             <p>
-              Deep Racer RL is an interactive browser simulation that teaches the core principles of
+              RL Racer is an interactive browser simulation that teaches the core principles of
               <strong> Reinforcement Learning (RL)</strong> through a miniature racing car.
               The car learns entirely on its own — you set the parameters and watch it discover
               how to complete the track without any hand-coded rules.
