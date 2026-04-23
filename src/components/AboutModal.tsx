@@ -139,6 +139,18 @@ export function AboutModal({ onClose }: Props) {
           {/* Credit */}
           <section className="about-section about-credit">
             <p>
+              Inspired by{' '}
+              <a
+                href="https://docs.aws.amazon.com/solutions/deepracer-on-aws/"
+                className="credit-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                DeepRacer on AWS
+              </a>
+              .
+            </p>
+            <p style={{ marginTop: '8px' }}>
               Built by <a href="mailto:sridhar.nerur@gmail.com" className="credit-link">Sridhar Nerur</a> using <strong>Claude</strong> (Anthropic).
               To be used for <strong>educational purposes only</strong>.
             </p>

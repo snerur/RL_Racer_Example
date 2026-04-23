@@ -120,11 +120,20 @@ export default function App() {
       <footer className="app-footer">
         <span>Bellman: Q(s,a) ← Q(s,a) + α · [r + γ · max<sub>a'</sub>Q(s',a') − Q(s,a)]</span>
         <span className="footer-credit">
-          Built by{' '}
+          Inspired by{' '}
+          <a
+            href="https://docs.aws.amazon.com/solutions/deepracer-on-aws/"
+            className="footer-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            DeepRacer on AWS
+          </a>
+          {' '}· Built by{' '}
           <a href="mailto:sridhar.nerur@gmail.com" className="footer-link">
             Sridhar Nerur
           </a>{' '}
-          using Claude · For educational purposes only
+          using Claude · Educational purposes only
         </span>
       </footer>
     </div>
