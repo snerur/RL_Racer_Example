@@ -4,6 +4,7 @@ import { resolve } from 'path';
 
 export default defineConfig({
   plugins: [react()],
+  base: '/RL_Racer_Example/',
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
