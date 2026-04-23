@@ -24,7 +24,8 @@ export function LLMChat({ stats, processedTrack, rlParams, rewardWeights }: Prop
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showKey, setShowKey] = useState(false);
-  const [configOpen, setConfigOpen] = useState(false);
+  // Open by default when no API key has been set yet
+  const [configOpen, setConfigOpen] = useState(true);
   const bottomRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
 
@@ -112,14 +113,27 @@ export function LLMChat({ stats, processedTrack, rlParams, rewardWeights }: Prop
       <div className="llm-header">
         <h3 className="panel-title" style={{ margin: 0 }}>Ask the RL Tutor</h3>
         <div className="llm-header-actions">
-          <button className="icon-btn" onClick={() => setConfigOpen((o) => !o)} title="Configure LLM">⚙</button>
+          <button
+            className={`icon-btn ${configOpen ? 'icon-btn-active' : ''}`}
+            onClick={() => setConfigOpen((o) => !o)}
+            title={configOpen ? 'Hide settings' : 'LLM settings'}
+          >
+            ⚙
+          </button>
           <button className="icon-btn" onClick={clearChat} title="Clear chat">🗑</button>
         </div>
       </div>
 
-      {/* Config drawer */}
+      {/* API config — always visible until a key is entered, then collapsible */}
+      {!config.apiKey && !configOpen && (
+        <div className="llm-no-key-banner" onClick={() => setConfigOpen(true)}>
+          ⚙ Click here to enter your API key and enable the tutor
+        </div>
+      )}
+
       {configOpen && (
         <div className="llm-config">
+          <p className="config-heading">LLM Settings</p>
           <div className="config-row">
             <label>Provider</label>
             <div className="mode-toggle">
@@ -144,17 +158,25 @@ export function LLMChat({ stats, processedTrack, rlParams, rewardWeights }: Prop
             <div className="api-key-row">
               <input
                 type={showKey ? 'text' : 'password'}
-                placeholder={`${config.provider === 'anthropic' ? 'sk-ant-...' : 'sk-...'}`}
+                placeholder={config.provider === 'anthropic' ? 'sk-ant-api03-...' : 'sk-...'}
                 value={config.apiKey}
                 onChange={(e) => setConfig((c) => ({ ...c, apiKey: e.target.value }))}
                 className="api-key-input"
+                autoComplete="off"
               />
-              <button className="icon-btn" onClick={() => setShowKey((s) => !s)}>
+              <button className="icon-btn" onClick={() => setShowKey((s) => !s)} title={showKey ? 'Hide key' : 'Show key'}>
                 {showKey ? '🙈' : '👁'}
               </button>
             </div>
           </div>
-          <p className="config-note">Keys are stored in memory only — never sent to our servers.</p>
+          <div className="config-footer-row">
+            <p className="config-note">🔒 Key stored in memory only — never leaves your browser.</p>
+            {config.apiKey && (
+              <button className="btn-save-key" onClick={() => setConfigOpen(false)}>
+                ✓ Save &amp; Close
+              </button>
+            )}
+          </div>
         </div>
       )}
 

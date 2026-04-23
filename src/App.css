@@ -456,7 +456,52 @@ html, body, #root {
   font-family: var(--font-mono);
 }
 .api-key-input:focus { outline: 1px solid var(--accent); }
+.config-heading {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
 .config-note { font-size: 9px; color: var(--text-dim); font-style: italic; }
+
+.config-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.btn-save-key {
+  padding: 3px 10px;
+  background: var(--green);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+.btn-save-key:hover { opacity: 0.85; }
+
+.llm-no-key-banner {
+  background: rgba(255, 107, 0, 0.1);
+  border: 1px dashed var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-size: 11px;
+  color: var(--accent);
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 6px;
+  transition: background 0.15s;
+}
+.llm-no-key-banner:hover { background: rgba(255, 107, 0, 0.18); }
+
+.icon-btn-active { opacity: 1; color: var(--accent); }
 
 .chat-messages {
   flex: 1;
